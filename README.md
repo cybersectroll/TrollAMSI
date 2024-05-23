@@ -1,6 +1,6 @@
 # TrollAMSI
 This new technique is called "Reflection with method swapping". Opens doors for other techniques such as ETW and CLM possibly(?).\
-Uses reflection to get a handle to the "ScanContent" method and updates it to point to a method we control.\
+Uses reflection to get a handle to the "ScanContent" method and updates it to point to a method we control.
 
 ## Benefits
 - No P/Invoke or win32 API calls used
