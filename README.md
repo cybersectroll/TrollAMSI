@@ -32,7 +32,7 @@ Uses reflection to get a handle to the "ScanContent" method and updates it to po
 ## Wishlist
 - same technique should/could be applicable to bypass
   - ETW write
-  - CLM enforcement
+  - We can apply the same trick on CLM enforcement
    ```
           public static void Troll()
         {
