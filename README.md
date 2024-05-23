@@ -1,5 +1,5 @@
 # TrollAMSI
-This new technique is called "Reflection with method swapping". Opens doors for other techniques such as ETW and CLM possibly(?).\
+This new technique is called "Reflection with method swapping". Opens doors for other techniques such as ETW and CLM possibly(?).
 Uses reflection to get a handle to the "ScanContent" method and updates it to point to a method we control.
 
 ## Benefits
