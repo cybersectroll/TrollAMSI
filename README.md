@@ -21,13 +21,16 @@
 ```
 
 # OPSEC
-## Static 
+'Static 
 - obfuscate "AmsiUtils" and "ScanContent" maybe?
-## Dynamic
+'Dynamic
 - Nothing much really
   
-# Wishlist - Project was done over overnight and I have no time/intent to pursue the following:
-- same technique should be applicable to ETW and CLM, maybe there's more?
+# Wishlist
+- same technique should/could be applicable to bypass
+  - ETW write
+  - CLM enforcement
+  - maybe there's more?
   
 # Disclaimer
 Should only be used for educational purposes!
