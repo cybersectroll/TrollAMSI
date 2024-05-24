@@ -2,6 +2,9 @@
 This new sub technique (based off matt graeber's original work on reflection) is called "Reflection with method swapping". Opens doors for other techniques such as ETW and CLM possibly(?).
 Uses reflection to get a handle to the "ScanContent" method and updates it to point to a method we control.
 
+## Inspiration
+https://practicalsecurityanalytics.com/new-amsi-bypass-using-clr-hooking/
+
 ## Benefits
 - No P/Invoke or win32 API calls used
 - No amsi.dll patching
