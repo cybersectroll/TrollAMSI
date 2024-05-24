@@ -2,9 +2,9 @@
 This new technique is called "Reflection with method swapping". Opens doors for other techniques such as ETW and CLM possibly(?).
 Uses reflection to get a handle to the "ScanContent" method and updates it to point to a method we control. 
 
-*Note: PrepareMethod() is not neccessary but preferred for both the "raw powershell" and .cs versions
+**Note: Technically speaking, PrepareMethod() in both the "raw powershell" and .cs versions should be called but works without**
 
-## Inspiration
+## Minor inspiration from
 https://practicalsecurityanalytics.com/new-amsi-bypass-using-clr-hooking/
 
 ## Benefits
