@@ -4,7 +4,7 @@ Uses reflection to get a handle to the "ScanContent" method and updates it to po
 
 **Note: Technically speaking, PrepareMethod() in both the "raw powershell" and .cs versions should be called but works without it too**
 
-## Minor inspiration from
+## Minor inspiration to abuse ScanContent came from
 https://practicalsecurityanalytics.com/new-amsi-bypass-using-clr-hooking/
 
 ## Benefits
