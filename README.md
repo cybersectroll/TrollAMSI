@@ -57,6 +57,10 @@ $t = [TrollAMSI].GetMethods() | Where-Object Name -eq 'M'
         private static int M() { return 0; }
   ```
   - maybe there's more?
-  
+## Credits
+1. Matt Graeber original amsi bypass in 2016
+2. https://github.com/calebstewart/bypass-clm
+
+
 ## Disclaimer
 Should only be used for educational purposes!
