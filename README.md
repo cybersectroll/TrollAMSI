@@ -5,7 +5,7 @@ Uses reflection to get a handle to the "ScanContent" method and updates it to po
 **Note: Technically speaking, PrepareMethod() in both the "raw powershell" and .cs versions should be called (especially for our method 'M') but works without it too**
 
 ## Benefits
-- No P/Invoke or win32 API calls used such as VirtualProtect hence WAY more opsec safe
+- No P/Invoke or win32 API calls used such as VirtualProtect hence **WAAAAAY more opsec safe**
 - No amsi.dll patching
   
 ## Usage 
