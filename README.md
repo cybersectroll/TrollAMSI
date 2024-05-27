@@ -3,7 +3,7 @@ Matt Graeber first introduced the technique to bypass AMSI by using reflection i
 1. The attempt to bypass -> both static and dynamic
 2. The bypass itself -> Post bypass, the signatures left behind
 
-The beauty of this technique as opposed to other AMSI bypass techniques such as byte patching etc for the 2 detections mentioned above is:
+**The beauty of this technique as opposed to other AMSI bypass techniques such as byte patching etc for the 2 detections mentioned above is:**
 1. There is a low detection surface:
     - statically: because the code profile is so short and it is hard to apply a signature on any part of the common .NET functionality used
     - dynmically: because of the lack of hooked win32 API calls 
