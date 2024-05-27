@@ -1,12 +1,19 @@
 # TrollAMSI
-This new technique is called "Reflection with method swapping". Opens doors for other techniques such as ETW and CLM possibly(?).
-Uses reflection to get a handle to the "ScanContent" method and updates it to point to a method we control.  
+Matt Graeber first introduced the technique to bypass AMSI by using reflection in 2016. The technique primarily targets field attributes. **Source:** https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell?tab=readme-ov-file#Using-Matt-Graebers-Reflection-method. Here, we bring us back to 2016 by targetting methods which I call a new technique "Reflection with method swapping" (i.e essentially monkeypatching). In our specific case, we use reflection to get a handle to the "ScanContent" method and updates it to point to a method we control. Additionally, this opens doors for other techniques such as ETW and CLM possibly(?). AMSI bypasses are usually detected at 2 stages:
+1. The attempt to bypass -> both static and dynamic
+2. The bypass itself -> Post bypass, the signatures left behind
+
+The beauty of this technique as opposed to other AMSI bypass techniques such as byte patching etc for the 2 detections mentioned above is:
+1. There is a low detection surface:
+    - statically: because the code profile is so short and it is hard to apply a signature on any part of the common .NET functionality used
+    - dynmically: because of the lack of hooked win32 API calls 
+2. Because we are modifying JIT/IL memory which is hard for AV/EDR to monitor or has not been monitored at this point by a lot of vendors
 
 **Note: Technically speaking, PrepareMethod() in both the "raw powershell" and .cs versions should be called (especially for our method 'M') but works without it too**
 
 ## Benefits
 - No P/Invoke or win32 API calls used such as VirtualProtect hence **WAAAAAY more opsec safe**
-- No amsi.dll patching
+- No amsi.dll patching or byte patching for that matter
   
 ## Usage 
 
