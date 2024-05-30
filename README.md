@@ -56,7 +56,7 @@ class TrollAMSI{static [int] M([string]$c, [string]$s){return 1}}[System.Runtime
 - DYNAMIC: Nothing much really. Note that Add-Type method will leave disk artifacts, whereas hosting the compiled DLL on a webserver and using Load() is completely in memory
 
 ## TESTING
-- Tested on win defender, 2 AV and 1 EDR 
+- Tested on 5 AV/EDR products
 - Eitherway security products pay greater emphasis to amsi.dll and the relevant winapi calls for byte patching which we do not touch
   
 ## Wishlist
