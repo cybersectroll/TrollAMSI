@@ -14,7 +14,8 @@ Matt Graeber first introduced the technique to bypass AMSI by using reflection i
 ```diff
 ! UPDATE 31/05/2024 
 ! For some security products, modify method M to pass in empty content (argument string c) to be scanned.
-! For example, private static int M(string c, string s) { c = ""; return 1; }
+! For CSHARP example, private static int M(string c, string s) { c = ""; return 1; }
+! For POWERSHELL example, class TrollAMSI{static [int] M([string]$c, [string]$s){ $c = ""; return 1}}
 ```
 
 ## Benefits
