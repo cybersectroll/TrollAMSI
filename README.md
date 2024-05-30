@@ -11,6 +11,12 @@ Matt Graeber first introduced the technique to bypass AMSI by using reflection i
 
 **Note: Technically speaking, PrepareMethod() in both the "raw powershell" and .cs versions should be called (especially for our method 'M') but works without it too**
 
+```diff
+! UPDATE 31/05/2024 
+! For some security products, modify method M to pass in empty content (argument string c) to be scanned.
+! For example, private static int M(string c, string s) { c = ""; return 1; }
+```
+
 ## Benefits
 - No P/Invoke or win32 API calls used such as VirtualProtect hence **WAAAAAY more opsec safe**
 - No amsi.dll patching or byte patching for that matter
