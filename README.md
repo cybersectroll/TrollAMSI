@@ -1,6 +1,6 @@
 # TrollAMSI
 
-**Note:** Every other technique in the internet patches the function. We are **NOT** patching the actual function here.
+**Note:** Every other technique in the internet patches different amsi function. We are <ins>**NOT**</ins> patching the actual function here.
 
 Matt Graeber first introduced the technique to bypass AMSI by using reflection in 2016. The technique primarily targets field attributes. **Source:** https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell?tab=readme-ov-file#Using-Matt-Graebers-Reflection-method. Here, we bring us back to 2016 by targetting methods which I call a new technique "Reflection with method swapping" (i.e essentially monkeypatching). In our specific case, we use reflection to get a handle to the "ScanContent" method and updates it to point to a method we control. Additionally, this opens doors for other techniques such as ETW and CLM possibly(?). AMSI bypasses are usually detected at 2 stages:
 1. The attempt to bypass -> both static and dynamic
