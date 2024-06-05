@@ -18,6 +18,10 @@ Matt Graeber first introduced the technique to bypass AMSI by using reflection i
 ! For CSHARP example, private static int M(string c, string s) { c = ""; return 1; }
 ! For POWERSHELL example, class TrollAMSI{static [int] M([string]$c, [string]$s){ $c = ""; return 1}}
 ```
+```diff
+! UPDATE 05/06/2024 
+! Refer to TrollAMSIdotnet for amsi bypass for Assembly.Load()
+```
 
 ## Benefits
 - No P/Invoke or win32 API calls used such as VirtualProtect hence **WAAAAAY more opsec safe**
