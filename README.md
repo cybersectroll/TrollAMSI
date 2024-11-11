@@ -12,6 +12,7 @@ Matt Graeber first introduced the technique to bypass AMSI by using reflection i
     - dynmically: because of the lack of hooked win32 API calls 
 2. Because we are modifying JIT/IL memory which is hard for AV/EDR to monitor or has not been monitored at this point by a lot of vendors
 
+## UPDATES
 ```diff
 ! UPDATE 31/05/2024 
 ! For some security products, modify method M to pass in empty argument string c.
