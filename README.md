@@ -30,7 +30,7 @@ Matt Graeber first introduced the technique to bypass AMSI by using reflection i
 ```
 ```diff
 ! UPDATE 27/05/25
-! Patched on some AV products .. use https://github.com/cybersectroll/TrollDisappearKey instead
+! if this doesnt work, you can try https://github.com/cybersectroll/TrollDisappearKey 
 ```
 
 ## Benefits
