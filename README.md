@@ -32,6 +32,10 @@ Matt Graeber first introduced the technique to bypass AMSI by using reflection i
 ! UPDATE 27/05/25
 ! if this doesnt work, you can try https://github.com/cybersectroll/TrollDisappearKey 
 ```
+```diff
+! UPDATE 29/05/25
+! if this doesnt work, you can try https://github.com/cybersectroll/TrollAMSI2
+```
 
 ## Benefits
 - No P/Invoke or win32 API calls used such as VirtualProtect hence **WAAAAAY more opsec safe**
