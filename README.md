@@ -12,7 +12,7 @@ Matt Graeber first introduced the technique to bypass AMSI by using reflection i
     - dynmically: because of the lack of hooked win32 API calls 
 2. Because we are modifying JIT/IL memory which is hard for AV/EDR to monitor or has not been monitored at this point by a lot of vendors
 
-## UPDATES
+## UPDATES (TrollAMSIdotnet still works 2025/06/15 but trollamsi doesnt on updated powershell.exe)
 ```diff
 ! UPDATE 31/05/2024 
 ! For some security products, modify method M to pass in empty argument string c.
@@ -28,7 +28,7 @@ Matt Graeber first introduced the technique to bypass AMSI by using reflection i
 ! UPDATE 27/05/25
 ! if this doesnt work, you can try https://github.com/cybersectroll/TrollDisappearKey
 ! if this doesnt work, you can try https://github.com/cybersectroll/TrollAMSI2
-! Refer to TrollAMSIdotnet for amsi bypass for Assembly.Load()  <-- ***still works 2025/06/15***
+! Refer to TrollAMSIdotnet for amsi bypass for Assembly.Load() 
 ```
 
 
